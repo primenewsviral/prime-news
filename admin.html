@@ -2,31 +2,41 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <title>Prime News - Admin Panel</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Admin Panel - Prime News</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input, textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-  <h2 style="text-align:center;">🛠 प्राइम न्यूज़ - एडमिन पैनल</h2>
-
-  <form style="max-width:500px;margin:auto;">
-    <label>🔑 यूज़रनेम:</label>
-    <input type="text" placeholder="username" required><br><br>
-
-    <label>🔒 पासवर्ड:</label>
-    <input type="password" placeholder="password" required><br><br>
-
-    <hr>
-
-    <label>📰 न्यूज़ टाइटल:</label>
-    <input type="text" placeholder="न्यूज़ का शीर्षक" required><br><br>
-
-    <label>📸 फोटो लिंक:</label>
-    <input type="url" placeholder="Image URL"><br><br>
-
-    <label>✏️ न्यूज़ विवरण:</label><br>
-    <textarea rows="6" placeholder="यहाँ न्यूज़ लिखें..." required></textarea><br><br>
-
-    <button type="submit">✅ सबमिट करें</button>
+  <h1>प्राइम न्यूज़ - एडमिन पैनल</h1>
+  <form id="newsForm">
+    <input type="text" id="title" placeholder="News Title" required>
+    <textarea id="content" placeholder="News Content" required></textarea>
+    <button type="submit">Save News</button>
   </form>
+
+  <script>
+    document.getElementById("newsForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const title = document.getElementById("title").value;
+      const content = document.getElementById("content").value;
+      const news = { title, content, date: new Date().toISOString() };
+      alert("यह डेमो पेज है — Backend जोड़ना अभी बाकी है।");
+      // बाद में: इसे PHP script या Firebase से connect किया जाएगा
+    });
+  </script>
 </body>
 </html>
