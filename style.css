@@ -1,0 +1,55 @@
+/* style.css – Prime News के लिए स्टाइल */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #d62828;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: #003049;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+nav a:hover {
+  background-color: #f77f00;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.news-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
