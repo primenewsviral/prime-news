@@ -1,66 +1,91 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prime News</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 🔵 HEADER -->
+  <!-- 🔷 Logo Section -->
   <header>
-    <img src="logo.png" alt="Prime News Logo" class="logo">
+    <img src="logo.png" alt="Prime News Logo" height="60" />
     <h1>प्राइम न्यूज़ की वेबसाइट पर आपका स्वागत है</h1>
   </header>
 
-  <!-- 🔴 LIVE BREAKING NEWS -->
+  <!-- 🔴 Live Breaking News Ticker -->
   <div class="ticker">
-    🔴 ब्रेकिंग न्यूज़: <span id="breaking-news">लोड हो रहा है...</span>
+    <marquee behavior="scroll" direction="left">
+      📢 ब्रेकिंग न्यूज़: स्वागत है Prime News में! यह एक लाइव न्यूज़ पोर्टल है।
+    </marquee>
   </div>
 
-  <!-- 🔍 SEARCH BOX -->
-  <div class="search-box">
-    <input type="text" placeholder="खोजें...">
-    <button>Search</button>
+  <!-- 🔍 Search Box -->
+  <div class="search">
+    <input type="text" placeholder="यहाँ खोजें..." />
+    <button>🔍</button>
   </div>
 
-  <!-- 📡 RSS NEWS FEED -->
-  <section id="rss-feed">
-    <h2>ताज़ा खबरें</h2>
-    <ul id="news-list">लोड हो रहा है...</ul>
+  <!-- 📰 Aaj Tak RSS News Section -->
+  <section>
+    <h2>📰 ताज़ा खबरें (Aaj Tak से)</h2>
+    <ul id="rss-feed">लोड हो रहा है...</ul>
   </section>
 
-  <!-- 📸 SOCIAL LINKS -->
+  <!-- 📸 Photo Section -->
+  <section>
+    <h2>📸 फोटो गैलरी</h2>
+    <img src="photo1.jpg" alt="खबर की फोटो" width="100%" />
+  </section>
+  <h2>🎥 हमारा Featured YouTube Creator</h2>
+  <p>हमारे खास क्रिएटर को सपोर्ट करें:</p>
+  <a href="https://youtube.com/@dasirajput4200?si=EwoDwuURdKYyy8qD" target="_blank">
+    <strong>@dasirajput4200</strong> - YouTube चैनल देखें
+  </a>
+
+  <!-- चाहें तो चैनल का वीडियो भी Embed कर सकते हैं -->
+  <div style="margin-top: 15px;">
+    <iframe width="100%" height="315" 
+      src="https://www.youtube.com/embed?listType=user_uploads&list=dasirajput4200" 
+      frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+  <!-- 📞 Contact Section -->
   <footer>
-    <h3>हमसे जुड़ें</h3>
-    <a href="https://youtube.com/@primenews2025" target="_blank">YouTube</a> |
-    <a href="https://www.instagram.com/primenews2025" target="_blank">Instagram</a>
-    <p>📞 संपर्क: +91-6396657164 | ✉️ Email: primenews@gmail.com</p>
+    <h3>📞 संपर्क करें</h3>
+    <p>ईमेल: primenews2025@gmail.com</p>
+    <p>फोन: +91-7088708209</p>
+    <p>पता: नजदीक हिंदू इंटर कॉलेज कांधला शामली उत्तर प्रदेश पिनकोड 247771</p>
+
+    <!-- 🔗 Social Media Links -->
+    <div class="social">
+      <a href="https://youtube.com/@primenews2025" target="_blank">YouTube</a> |
+      <a href="https://www.instagram.com/primenews2025" target="_blank">Instagram</a>
+    </div>
   </footer>
 
-  <!-- 💻 SCRIPT -->
+  <!-- ✅ RSS JavaScript -->
   <script>
-    // RSS Feed Script (Live News)
     async function loadRSS() {
-      const rssURL = "https://rss.app/feeds/JTQqMdGq4vzzbH7v.xml"; // RSS feed URL
-      const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssURL}`);
-      const data = await response.json();
+      const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://aajtak.intoday.in/rssfeed/miscellaneous.xml';
+      try {
+        const response = await fetch(rssUrl);
+        const data = await response.json();
 
-      const newsList = document.getElementById('news-list');
-      const breaking = document.getElementById('breaking-news');
-      newsList.innerHTML = "";
-      if (data.items && data.items.length > 0) {
-        breaking.innerText = data.items[0].title;
-        data.items.slice(0, 5).forEach(item => {
-          const li = document.createElement("li");
+        const list = document.getElementById('rss-feed');
+        list.innerHTML = "";
+
+        data.items.slice(0, 6).forEach(item => {
+          const li = document.createElement('li');
           li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
-          newsList.appendChild(li);
+          list.appendChild(li);
         });
-      } else {
-        newsList.innerHTML = "<li>कोई खबर नहीं मिली।</li>";
+      } catch (error) {
+        document.getElementById('rss-feed').innerHTML = "<li>खबरें लोड नहीं हो पाईं।</li>";
       }
     }
+
     loadRSS();
   </script>
 
