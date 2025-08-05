@@ -1,55 +1,68 @@
-/* style.css – Prime News के लिए स्टाइल */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  font-family: sans-serif;
+  background: #f9f9f9;
   margin: 0;
   padding: 0;
+  color: #222;
+  text-align: center;
 }
 
 header {
-  background-color: #d62828;
+  background: #d32f2f;
   color: white;
   padding: 20px;
-  text-align: center;
 }
 
-nav {
-  background-color: #003049;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.logo {
+  width: 100px;
+  height: auto;
 }
 
-nav a {
+.ticker {
+  background: yellow;
+  color: black;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.search-box {
+  margin: 20px;
+}
+
+.search-box input {
+  padding: 10px;
+  width: 200px;
+}
+
+.search-box button {
+  padding: 10px;
+  background: red;
   color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  display: block;
+  border: none;
 }
 
-nav a:hover {
-  background-color: #f77f00;
+#rss-feed {
+  margin: 30px;
 }
 
-main {
-  padding: 20px;
+#rss-feed ul {
+  list-style: none;
+  padding: 0;
+}
+
+#rss-feed li {
+  margin: 10px 0;
 }
 
 footer {
-  background-color: #222;
+  background: #222;
   color: white;
-  text-align: center;
-  padding: 15px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+  padding: 20px;
+  margin-top: 30px;
 }
 
-.news-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 10px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+footer a {
+  color: #00bfff;
+  text-decoration: none;
+  margin: 0 10px;
 }
