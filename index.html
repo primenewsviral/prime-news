@@ -4,147 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prime News</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #e60000;
-      color: white;
-      padding: 20px 10px;
-      text-align: center;
-    }
-
-    header img {
-      height: 80px;
-      margin-bottom: 10px;
-    }
-
-    .ticker {
-      background: yellow;
-      color: black;
-      font-weight: bold;
-      padding: 10px;
-      overflow: hidden;
-      white-space: nowrap;
-      animation: scroll-left 15s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    .section {
-      padding: 20px;
-      background: white;
-      margin: 10px;
-      border-radius: 10px;
-    }
-
-    .rss-feed {
-      color: #333;
-      font-size: 16px;
-    }
-
-    .gallery img {
-      width: 100%;
-      max-width: 300px;
-      margin: 10px auto;
-      display: block;
-      border-radius: 10px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-      border-radius: 10px;
-    }
-
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-    }
-
-    a {
-      color: #00f;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .social-icons a {
-      margin: 0 10px;
-      font-size: 24px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>📢 प्राइम न्यूज़ में आपका स्वागत है</h1>
+    <img src="logo.png" alt="Prime News Logo" class="logo"/>
+  </header>
 
-<header>
-  <img src="logo.png" alt="Prime News Logo" />
-  <h1>प्राइम न्यूज़ की वेबसाइट पर आपका स्वागत है</h1>
-</header>
+  <div class="top-bar">
+    <input type="text" placeholder="यहाँ खोजें..." />
+    <button>🔍</button>
+    <div class="auth-links">
+      <a href="#">Login</a> | <a href="#">Sign Up</a>
+    </div>
+  </div>
 
-<div class="ticker">
-  📢 Live: यह एक लाइव न्यूज़ पोर्टल है - Prime News 🔴 ताज़ा खबरें...
-</div>
+  <section class="rss-section">
+    <h2>📰 ताज़ा खबरें (Amar Ujala से)</h2>
+    <ul id="news-list">Loading news...</ul>
+  </section>
 
-<div class="section">
-  <h2>📰 ताज़ा खबरें (Aaj Tak से)</h2>
-  <div class="rss-feed" id="rss-news">Loading news...</div>
-</div>
+  <section class="team">
+    <h2>👨‍👩‍👧‍👦 हमारी टीम</h2>
+    <img src="team.jpg" alt="Team Photo" class="team-photo"/>
+  </section>
 
-<div class="section gallery">
-  <h2>📸 फोटो गैलरी</h2>
-  <img src="https://source.unsplash.com/random/300x200?news" alt="फोटो 1" />
-  <img src="https://source.unsplash.com/random/300x201?reporter" alt="फोटो 2" />
-</div>
+  <section class="ads">
+    <h2>🎥 देखें हमारा यूट्यूब चैनल</h2>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/lS3XrGjr4mk?si=qw5Ock4BVHgBPXNS" frameborder="0" allowfullscreen></iframe>
+  </section>
 
-<div class="section">
-  <h2>🎥 हमारा Featured YouTube Creator</h2>
-  <p>हमारे खास क्रिएटर को सपोर्ट करें:</p>
-  <p><a href="https://youtube.com/@dasirajput4200" target="_blank">@dasirajput4200 - YouTube चैनल देखें</a></p>
-  <iframe src="https://www.youtube.com/embed/lS3XrGjr4mk" allowfullscreen></iframe>
-</div>
+  <section class="contact">
+    <h2>📞 संपर्क करें</h2>
+    <p>फोन नंबर: 7088708209</p>
+    <p>ईमेल: <a href="mailto:primenewsviral@gmail.com">primenewsviral@gmail.com</a></p>
+  </section>
 
-<div class="section">
-  <h2>📞 Contact & Social Links</h2>
-  <p>Email: contact@primenews.com</p>
-  <p>Instagram: <a href="https://www.instagram.com/primenews2025" target="_blank">@primenews2025</a></p>
-  <p>YouTube: <a href="https://youtube.com/@primenews2025" target="_blank">@primenews2025</a></p>
-</div>
+  <footer>
+    <h3>👇 हमें फॉलो करें</h3>
+    <a href="https://youtu.be/lS3XrGjr4mk?si=qw5Ock4BVHgBPXNS" target="_blank">YouTube</a> |
+    <a href="https://www.instagram.com/primenews2025?igsh=MWFkdWRwdmNjcDIwaA==" target="_blank">Instagram</a> |
+    <a href="https://www.facebook.com/share/19romUnSUa/" target="_blank">Facebook</a>
+  </footer>
 
-<footer>
-  © 2025 Prime News. सभी अधिकार सुरक्षित।
-</footer>
-
-<script>
-  // RSS Feed from Aaj Tak
-  const rssContainer = document.getElementById('rss-news');
-
-  fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.aajtak.in/rssfeeds/default.xml')
-    .then(res => res.json())
-    .then(data => {
-      const items = data.items.slice(0, 5);
-      rssContainer.innerHTML = items.map(item => `<p><a href="${item.link}" target="_blank">${item.title}</a></p>`).join('');
-    })
-    .catch(() => {
-      rssContainer.innerHTML = "खबरें लोड नहीं हो पाईं।";
-    });
-</script>
-
+  <script>
+    // Amar Ujala RSS News
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.amarujala.com/rss/india-news.xml')
+      .then(response => response.json())
+      .then(data => {
+        const newsList = document.getElementById('news-list');
+        newsList.innerHTML = "";
+        data.items.slice(0, 5).forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+          newsList.appendChild(li);
+        });
+      })
+      .catch(error => {
+        document.getElementById('news-list').innerHTML = "खबरें लोड नहीं हो पाईं।";
+      });
+  </script>
 </body>
 </html>
