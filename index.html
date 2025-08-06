@@ -4,7 +4,133 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prime News</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #e0f7fa, #fce4ec);
+      color: #222;
+      line-height: 1.6;
+      padding: 10px;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: #2196f3;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .top-bar input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .top-bar button {
+      padding: 8px 12px;
+      background: #ff4081;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .auth-links a {
+      color: white;
+      margin-left: 10px;
+      text-decoration: underline;
+    }
+
+    section {
+      margin: 20px 0;
+    }
+
+    h2 {
+      color: #0d47a1;
+      margin-bottom: 10px;
+    }
+
+    #news-list li {
+      margin-bottom: 8px;
+    }
+
+    .team-photo {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .contact p, .contact a {
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      background: #0d47a1;
+      color: white;
+      border-radius: 10px;
+    }
+
+    footer a {
+      color: #ffccbc;
+      margin: 0 10px;
+      text-decoration: underline;
+    }
+
+    .location {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .top-bar input, .top-bar button {
+        width: 100%;
+        margin: 5px 0;
+      }
+
+      .auth-links {
+        width: 100%;
+        text-align: right;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -32,7 +158,7 @@
 
   <section class="ads">
     <h2>🎥 देखें हमारा यूट्यूब चैनल</h2>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/lS3XrGjr4mk?si=qw5Ock4BVHgBPXNS" frameborder="0" allowfullscreen></iframe>
+    <iframe height="315" src="https://www.youtube.com/embed/lS3XrGjr4mk?si=qw5Ock4BVHgBPXNS" frameborder="0" allowfullscreen></iframe>
   </section>
 
   <section class="contact">
@@ -46,6 +172,9 @@
     <a href="https://youtu.be/lS3XrGjr4mk?si=qw5Ock4BVHgBPXNS" target="_blank">YouTube</a> |
     <a href="https://www.instagram.com/primenews2025?igsh=MWFkdWRwdmNjcDIwaA==" target="_blank">Instagram</a> |
     <a href="https://www.facebook.com/share/19romUnSUa/" target="_blank">Facebook</a>
+    <div class="location">
+      📍 ऑफिस: Village Bharsi, District Shamli, Uttar Pradesh - 247771
+    </div>
   </footer>
 
   <script>
