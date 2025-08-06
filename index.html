@@ -5,95 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prime News</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #e60000;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+    }
+
+    header img {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .ticker {
+      background: yellow;
+      color: black;
+      font-weight: bold;
+      padding: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: scroll-left 15s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .section {
+      padding: 20px;
+      background: white;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    .rss-feed {
+      color: #333;
+      font-size: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    a {
+      color: #00f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 24px;
+    }
+
+  </style>
 </head>
 <body>
 
-  <!-- 🔷 Logo Section -->
-  <header>
-    <img src="logo.png" alt="Prime News Logo" height="60" />
-    <h1>प्राइम न्यूज़ की वेबसाइट पर आपका स्वागत है</h1>
-  </header>
+<header>
+  <img src="logo.png" alt="Prime News Logo" />
+  <h1>प्राइम न्यूज़ की वेबसाइट पर आपका स्वागत है</h1>
+</header>
 
-  <!-- 🔴 Live Breaking News Ticker -->
-  <div class="ticker">
-    <marquee behavior="scroll" direction="left">
-      📢 ब्रेकिंग न्यूज़: स्वागत है Prime News में! यह एक लाइव न्यूज़ पोर्टल है।
-    </marquee>
-  </div>
+<div class="ticker">
+  📢 Live: यह एक लाइव न्यूज़ पोर्टल है - Prime News 🔴 ताज़ा खबरें...
+</div>
 
-  <!-- 🔍 Search Box -->
-  <div class="search">
-    <input type="text" placeholder="यहाँ खोजें..." />
-    <button>🔍</button>
-  </div>
+<div class="section">
+  <h2>📰 ताज़ा खबरें (Aaj Tak से)</h2>
+  <div class="rss-feed" id="rss-news">Loading news...</div>
+</div>
 
-  <!-- 📰 Aaj Tak RSS News Section -->
-  <section>
-    <h2>📰 ताज़ा खबरें (Aaj Tak से)</h2>
-    <ul id="rss-feed">लोड हो रहा है...</ul>
-  </section>
+<div class="section gallery">
+  <h2>📸 फोटो गैलरी</h2>
+  <img src="https://source.unsplash.com/random/300x200?news" alt="फोटो 1" />
+  <img src="https://source.unsplash.com/random/300x201?reporter" alt="फोटो 2" />
+</div>
 
-  <!-- 📸 Photo Section -->
-  <section>
-    <h2>📸 फोटो गैलरी</h2>
-    <img src="photo1.jpg" alt="खबर की फोटो" width="100%" />
-  </section>
+<div class="section">
   <h2>🎥 हमारा Featured YouTube Creator</h2>
   <p>हमारे खास क्रिएटर को सपोर्ट करें:</p>
-  <a href="https://youtube.com/@dasirajput4200?si=EwoDwuURdKYyy8qD" target="_blank">
-    <strong>@dasirajput4200</strong> - YouTube चैनल देखें
-  </a>
+  <p><a href="https://youtube.com/@dasirajput4200" target="_blank">@dasirajput4200 - YouTube चैनल देखें</a></p>
+  <iframe src="https://www.youtube.com/embed/lS3XrGjr4mk" allowfullscreen></iframe>
+</div>
 
-  <!-- चाहें तो चैनल का वीडियो भी Embed कर सकते हैं -->
-  <div style="margin-top: 15px;">
-    <iframe width="100%" height="315" 
-      src="https://www.youtube.com/embed?listType=user_uploads&list=dasirajput4200" 
-      frameborder="0" allowfullscreen></iframe>
-  </div><section>
-  <h2>🎬 Featured Video</h2>
-  <iframe width="100%" height="315"
-    src="https://www.youtube.com/embed/lS3XrGjr4mk"
-    title="YouTube video player" frameborder="0"
-    allowfullscreen></iframe>
-</section>
-</section>
-  <!-- 📞 Contact Section -->
-  <footer>
-    <h3>📞 संपर्क करें</h3>
-    <p>ईमेल: primenews2025@gmail.com</p>
-    <p>फोन: +91-7088708209</p>
-    <p>पता: नजदीक हिंदू इंटर कॉलेज कांधला शामली उत्तर प्रदेश पिनकोड 247771</p>
+<div class="section">
+  <h2>📞 Contact & Social Links</h2>
+  <p>Email: contact@primenews.com</p>
+  <p>Instagram: <a href="https://www.instagram.com/primenews2025" target="_blank">@primenews2025</a></p>
+  <p>YouTube: <a href="https://youtube.com/@primenews2025" target="_blank">@primenews2025</a></p>
+</div>
 
-    <!-- 🔗 Social Media Links -->
-    <div class="social">
-      <a href="https://youtube.com/@primenews2025" target="_blank">YouTube</a> |
-      <a href="https://www.instagram.com/primenews2025" target="_blank">Instagram</a>
-    </div>
-  </footer>
+<footer>
+  © 2025 Prime News. सभी अधिकार सुरक्षित।
+</footer>
 
-  <!-- ✅ RSS JavaScript -->
-  <script>
-    async function loadRSS() {
-      const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://aajtak.intoday.in/rssfeed/miscellaneous.xml';
-      try {
-        const response = await fetch(rssUrl);
-        const data = await response.json();
+<script>
+  // RSS Feed from Aaj Tak
+  const rssContainer = document.getElementById('rss-news');
 
-        const list = document.getElementById('rss-feed');
-        list.innerHTML = "";
-
-        data.items.slice(0, 6).forEach(item => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
-          list.appendChild(li);
-        });
-      } catch (error) {
-        document.getElementById('rss-feed').innerHTML = "<li>खबरें लोड नहीं हो पाईं।</li>";
-      }
-    }
-
-    loadRSS();
-  </script>
+  fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.aajtak.in/rssfeeds/default.xml')
+    .then(res => res.json())
+    .then(data => {
+      const items = data.items.slice(0, 5);
+      rssContainer.innerHTML = items.map(item => `<p><a href="${item.link}" target="_blank">${item.title}</a></p>`).join('');
+    })
+    .catch(() => {
+      rssContainer.innerHTML = "खबरें लोड नहीं हो पाईं।";
+    });
+</script>
 
 </body>
 </html>
