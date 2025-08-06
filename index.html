@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prime News</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: sans-serif;
+    :root {
+      --bg-color: #fce4ec;
+      --text-color: #000;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #fff;
     }
 
     body {
-      background: linear-gradient(to bottom, #e0f7fa, #fce4ec);
-      color: #222;
-      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: sans-serif;
+      margin: 0;
       padding: 10px;
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
@@ -26,7 +31,6 @@
 
     .logo {
       width: 100px;
-      height: auto;
     }
 
     .top-bar {
@@ -40,7 +44,7 @@
       border-radius: 10px;
     }
 
-    .top-bar input[type="text"] {
+    .top-bar input {
       flex: 1;
       padding: 8px;
       border: none;
@@ -69,28 +73,19 @@
 
     h2 {
       color: #0d47a1;
-      margin-bottom: 10px;
-    }
-
-    #news-list li {
-      margin-bottom: 8px;
     }
 
     .team-photo {
       width: 100%;
       max-width: 500px;
       display: block;
-      margin: 0 auto;
+      margin: auto;
       border-radius: 10px;
     }
 
     iframe {
       width: 100%;
       border-radius: 10px;
-    }
-
-    .contact p, .contact a {
-      font-size: 16px;
     }
 
     footer {
@@ -105,13 +100,55 @@
     footer a {
       color: #ffccbc;
       margin: 0 10px;
-      text-decoration: underline;
     }
 
     .location {
       margin-top: 10px;
       font-size: 14px;
       color: #ccc;
+    }
+
+    /* 3 Dot Menu */
+    .menu-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .menu-box {
+      position: absolute;
+      top: 50px;
+      right: 15px;
+      background: #ffffff;
+      color: #000;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      padding: 10px;
+      display: none;
+      z-index: 10;
+    }
+
+    .menu-box button, .menu-box a {
+      display: block;
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 8px;
+      margin: 5px 0;
+      font-size: 16px;
+      cursor: pointer;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .menu-box button:hover, .menu-box a:hover {
+      background: #f0f0f0;
     }
 
     @media (max-width: 600px) {
@@ -138,6 +175,16 @@
     <img src="logo.png" alt="Prime News Logo" class="logo"/>
   </header>
 
+  <!-- 3 Dot Menu Button -->
+  <button class="menu-btn" onclick="toggleMenu()">⋮</button>
+  <div class="menu-box" id="menuBox">
+    <button onclick="toggleDarkMode()">🌗 Dark / Light Mode</button>
+    <button onclick="shareWebsite()">🔗 Share Website</button>
+    <a href="https://youtu.be/lS3XrGjr4mk?si=qw5Ock4BVHgBPXNS" target="_blank">📺 YouTube</a>
+    <a href="https://www.instagram.com/primenews2025" target="_blank">📸 Instagram</a>
+    <a href="https://www.facebook.com/share/19romUnSUa/" target="_blank">📘 Facebook</a>
+  </div>
+
   <div class="top-bar">
     <input type="text" placeholder="यहाँ खोजें..." />
     <button>🔍</button>
@@ -146,17 +193,17 @@
     </div>
   </div>
 
-  <section class="rss-section">
+  <section>
     <h2>📰 ताज़ा खबरें (Amar Ujala से)</h2>
     <ul id="news-list">Loading news...</ul>
   </section>
 
-  <section class="team">
+  <section>
     <h2>👨‍👩‍👧‍👦 हमारी टीम</h2>
     <img src="team.jpg" alt="Team Photo" class="team-photo"/>
   </section>
 
-  <section class="ads">
+  <section>
     <h2>🎥 देखें हमारा यूट्यूब चैनल</h2>
     <iframe height="315" src="https://www.youtube.com/embed/lS3XrGjr4mk?si=qw5Ock4BVHgBPXNS" frameborder="0" allowfullscreen></iframe>
   </section>
@@ -170,15 +217,37 @@
   <footer>
     <h3>👇 हमें फॉलो करें</h3>
     <a href="https://youtu.be/lS3XrGjr4mk?si=qw5Ock4BVHgBPXNS" target="_blank">YouTube</a> |
-    <a href="https://www.instagram.com/primenews2025?igsh=MWFkdWRwdmNjcDIwaA==" target="_blank">Instagram</a> |
+    <a href="https://www.instagram.com/primenews2025" target="_blank">Instagram</a> |
     <a href="https://www.facebook.com/share/19romUnSUa/" target="_blank">Facebook</a>
-    <div class="location">
-      📍 ऑफिस: Village Bharsi, District Shamli, Uttar Pradesh - 247771
-    </div>
+    <div class="location">📍 ऑफिस: Village Bharsi, District Shamli, Uttar Pradesh - 247771</div>
   </footer>
 
   <script>
-    // Amar Ujala RSS News
+    // Toggle menu
+    function toggleMenu() {
+      const box = document.getElementById('menuBox');
+      box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Share website
+    function shareWebsite() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Prime News',
+          text: 'Check out Prime News - ताज़ा खबरें!',
+          url: window.location.href
+        });
+      } else {
+        alert('Sharing not supported on this browser.');
+      }
+    }
+
+    // RSS Feed
     fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.amarujala.com/rss/india-news.xml')
       .then(response => response.json())
       .then(data => {
@@ -190,9 +259,9 @@
           newsList.appendChild(li);
         });
       })
-      .catch(error => {
+      .catch(() => {
         document.getElementById('news-list').innerHTML = "खबरें लोड नहीं हो पाईं।";
       });
   </script>
 </body>
-</html>
+      </html>
